@@ -23,10 +23,10 @@ ssa <- ssa %>%
 ssa$date <- paste('01', ssa$month, ssa$Fiscal_Year)
 unique(ssa$date)  
 
-# ssa <- ssa %>%
-#   mutate(Fiscal_Year = as.numeric(Fiscal_Year)) %>%
-#   mutate(Fiscal_Year = ifelse(month(month) >= 10, Fiscal_Year - 1, Fiscal_Year)) %>%
-#   mutate(date = date(paste('01', month, Fiscal_Year)))
+ ssa <- ssa %>%
+   mutate(Fiscal_Year = as.numeric(Fiscal_Year)) %>%
+   mutate(Fiscal_Year = ifelse(month(date) >= 10, Fiscal_Year - 1, Fiscal_Year)) %>%
+   mutate(date = dmy(paste('01', month, Fiscal_Year)))
 
 
 
